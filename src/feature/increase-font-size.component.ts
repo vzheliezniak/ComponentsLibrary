@@ -5,7 +5,7 @@ declare var window: any;
   selector: 'v-in-font-size',
   template: `
     <button type="button" (click)="increase()">+</button>
-  `,increase
+  `,
   styleUrls: ['./font-size.component.css']
 })
 export class IncreaseFontSizeComponent implements OnInit {
