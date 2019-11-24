@@ -1,13 +1,13 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { IncreaseFontSizeComponent} from "./increase-font-size.component";
+import { EditFontSizeDirective} from "./edit-font-size.directive";
 
 @NgModule({
   imports: [
     CommonModule
   ],
-  declarations: [IncreaseFontSizeComponent],
+  declarations: [EditFontSizeDirective],
   providers: [],
-  exports: [IncreaseFontSizeComponent]
+  exports: [EditFontSizeDirective]
 })
 export class TextModule { }
