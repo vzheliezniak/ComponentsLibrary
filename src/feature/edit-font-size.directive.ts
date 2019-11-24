@@ -1,4 +1,4 @@
-import { OnInit, Input, Directive } from '@angular/core';
+import { OnInit, Input, Directive, Output , EventEmitter} from '@angular/core';
 declare var window: any;
 
 @Directive({
@@ -12,11 +12,11 @@ export class EditFontSizeDirective implements OnInit {
 
     @Input("maxFontSize") maximumFontSize: number = 50;
 
+    @Output() fontSizeIsUpdated = new EventEmitter<number>();
+
     ngOnInit() {
 
         if (this.element) {
-            console.log(this.element);
-
             this.element.addEventListener('wheel', (event: WheelEvent) => {
                 let fontSize: number = this.getCurrentFontSize(this.element);
 
@@ -26,6 +26,7 @@ export class EditFontSizeDirective implements OnInit {
                     fontSize--;
                 }
                 this.element.style.fontSize = `${fontSize}px`;
+                this.fontSizeIsUpdated.emit(fontSize);
             });
         }
     }
