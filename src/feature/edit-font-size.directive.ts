@@ -1,4 +1,4 @@
-import { OnInit, ElementRef, Input, Directive } from '@angular/core';
+import { OnInit, Input, Directive } from '@angular/core';
 declare var window: any;
 
 @Directive({
@@ -6,33 +6,34 @@ declare var window: any;
 })
 export class EditFontSizeDirective implements OnInit {
 
-    private currentElement: HTMLElement = null;
+    @Input("element") element: HTMLElement = null;
 
     @Input("minFontSize") minimumFontSize: number = 5;
 
     @Input("maxFontSize") maximumFontSize: number = 50;
 
-    constructor(private elRef: ElementRef) { }
-
     ngOnInit() {
-        this.currentElement = this.elRef.nativeElement.parentElement;
 
-        this.currentElement.addEventListener('wheel', (event: WheelEvent) => {
-            let fontSize: number = this.getCurrentFontSize(this.currentElement);
+        if (this.element) {
+            console.log(this.element);
 
-            if (event.deltaY < 0 && fontSize + 1 <= this.maximumFontSize) {
-                fontSize++;
-            } else if (event.deltaY > 0 && fontSize - 1 >= this.minimumFontSize) {
-                fontSize--;
-            }
-            this.currentElement.style.fontSize = `${fontSize}px`;
-        });
+            this.element.addEventListener('wheel', (event: WheelEvent) => {
+                let fontSize: number = this.getCurrentFontSize(this.element);
+
+                if (event.deltaY < 0 && fontSize + 1 <= this.maximumFontSize) {
+                    fontSize++;
+                } else if (event.deltaY > 0 && fontSize - 1 >= this.minimumFontSize) {
+                    fontSize--;
+                }
+                this.element.style.fontSize = `${fontSize}px`;
+            });
+        }
     }
 
     private getCurrentFontSize(el: HTMLElement): number {
-        let currentFontSize: string = this.elRef.nativeElement.parentElement.style.fontSize;
+        let currentFontSize: string = el.style.fontSize;
         if (currentFontSize === '') {
-            var computedStyles = window.getComputedStyle(this.elRef.nativeElement.parentElement);
+            var computedStyles = window.getComputedStyle(el);
             currentFontSize = computedStyles.getPropertyValue('font-size');
         }
 
