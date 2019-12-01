@@ -1,0 +1,29 @@
+<div class="modal">
+
+  <button (click)="close()"> X </button>
+
+  <form [formGroup]="form">
+    <label formArrayName="styleOptions" *ngFor="let style of form.controls.styleOptions.controls; let i = index">
+      <input type="checkbox" [formControlName]="i">
+      {{styleOptions[i].name}}
+    </label>
+
+    <button (click)="toggleTextDecoration()"><span> Text Decoration  </span></button>
+
+    <label [class.hidden-block]="!isTextDecorationDropdownShown" *ngFor="let decoration of textDecorations;">
+      <input formControlName="textDecorations" type="radio" name="textDecorations" [value]="decoration.id" />
+      {{decoration.name}}
+    </label>
+
+    <button (click)="toggleFontOptions()"> <span> Font Family </span></button>
+
+    <label [class.hidden-block]="!isFontFamilyOptionShown" *ngFor="let family of fontFamilyOption;">
+      <input formControlName="fontFamilyOption" type="radio" name="fontFamilyOption" [value]="family.id" />
+      <span [style.font-family]="family.font">  {{family.name}}  </span>
+     
+    </label>
+
+  </form>
+
+
+</div>

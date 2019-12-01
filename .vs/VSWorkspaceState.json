@@ -3,8 +3,10 @@
     "",
     "\\src",
     "\\src\\app",
-    "\\src\\feature"
+    "\\src\\feature",
+    "\\src\\feature\\editFontSize",
+    "\\src\\feature\\toggleFontStyles"
   ],
-  "SelectedNode": "\\package.json",
+  "SelectedNode": "\\src\\feature\\toggleFontStyles\\font-style.directive.ts",
   "PreviewInSolutionExplorer": false
 }

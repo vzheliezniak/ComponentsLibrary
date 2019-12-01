@@ -1,13 +1,20 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { EditFontSizeDirective} from "./edit-font-size.directive";
+import { EditFontSizeDirective} from "./editFontSize/edit-font-size.directive";
+import { FontStyleDirective } from './toggleFontStyles/font-style.directive';
+import { FontStyleDialogComponent } from './toggleFontStyles/font-style-dialog.component';
+import { ComponentResolverService } from './toggleFontStyles/component.resolver.service';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FontStyleDialogService } from './toggleFontStyles/font-style-dialog.service';
+import { FontStyleModel } from './toggleFontStyles/font-style.model';
 
 @NgModule({
-  imports: [
-    CommonModule
+    imports: [
+        CommonModule, FormsModule, ReactiveFormsModule
   ],
-  declarations: [EditFontSizeDirective],
-  providers: [],
-  exports: [EditFontSizeDirective]
+    declarations: [EditFontSizeDirective, FontStyleDirective, FontStyleDialogComponent, FontStyleModel],
+    providers: [ComponentResolverService, FontStyleDialogService],
+    exports: [EditFontSizeDirective, FontStyleDirective],
+    entryComponents: [FontStyleDialogComponent]
 })
 export class TextModule { }
