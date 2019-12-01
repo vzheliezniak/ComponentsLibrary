@@ -1,7 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { FormBuilder, FormGroup, FormArray, FormControl } from '@angular/forms';
 import { FontStyleDialogService } from './font-style-dialog.service';
-import { Subscription } from 'rxjs';
+//import { Subscription } from 'rxjs';
 import { FontStyleModel } from './font-style.model';
 
 @Component({
@@ -16,7 +16,7 @@ export class FontStyleDialogComponent implements OnInit, OnDestroy {
     public isFontFamilyOptionShown: boolean = false;
     public initialFontSettings: FontStyleModel = null;
 
-    private subscription: Subscription;
+    //private subscription: Subscription;
 
     styleOptions = [
         { id: 1, name: 'Italic' },
@@ -53,7 +53,8 @@ export class FontStyleDialogComponent implements OnInit, OnDestroy {
     }
 
     ngOnInit(): void {
-        this.subscription = this.form.valueChanges.subscribe((change) => {
+       // this.subscription =
+            this.form.valueChanges.subscribe((change) => {
 
             this.elementForStyling.style.fontStyle = change.styleOptions[0] === true ? "italic" : "normal";
             this.elementForStyling.style.fontWeight = change.styleOptions[1] === true ? "bold" : "normal";
@@ -67,7 +68,7 @@ export class FontStyleDialogComponent implements OnInit, OnDestroy {
     }
 
     ngOnDestroy(): void {
-        this.subscription.unsubscribe();
+        //this.subscription.unsubscribe();
     }
 
     private addCheckboxes(selectedSettings: Array<number>): void {
