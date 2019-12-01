@@ -6,13 +6,12 @@ import { FontStyleDialogComponent } from './toggleFontStyles/font-style-dialog.c
 import { ComponentResolverService } from './toggleFontStyles/component.resolver.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FontStyleDialogService } from './toggleFontStyles/font-style-dialog.service';
-import { FontStyleModel } from './toggleFontStyles/font-style.model';
 
 @NgModule({
     imports: [
         CommonModule, FormsModule, ReactiveFormsModule
   ],
-    declarations: [EditFontSizeDirective, FontStyleDirective, FontStyleDialogComponent, FontStyleModel],
+    declarations: [EditFontSizeDirective, FontStyleDirective, FontStyleDialogComponent],
     providers: [ComponentResolverService, FontStyleDialogService],
     exports: [EditFontSizeDirective, FontStyleDirective],
     entryComponents: [FontStyleDialogComponent]
