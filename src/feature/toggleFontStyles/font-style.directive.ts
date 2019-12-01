@@ -21,11 +21,13 @@ export class FontStyleDirective implements OnInit, OnDestroy {
     }
 
     ngOnInit() {
+        console.log("instantiate directive");
         if (this.element) {
             this.element.addEventListener("contextmenu", (event: MouseEvent) => {
                 event.preventDefault();
                 event.stopPropagation();
-                if (!this.isDialogAlreadyOpen) {                   
+                if (!this.isDialogAlreadyOpen) {
+                    console.log("call to add component");
                     this.comp.setRootViewContainerRef(this.container);
                     this.comp.addDynamicComponent(this.initialFonstStyleSettings);
                     this.isDialogAlreadyOpen = true;

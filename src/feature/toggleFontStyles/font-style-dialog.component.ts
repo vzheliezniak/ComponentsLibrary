@@ -41,6 +41,8 @@ export class FontStyleDialogComponent implements OnInit, OnDestroy {
 
     constructor(private formBuilder: FormBuilder, private dialogService: FontStyleDialogService) {
 
+        console.log("constructor of componenet");
+
         this.form = this.formBuilder.group({
             styleOptions: new FormArray([]),
             textDecorations: [''],
