@@ -3,5 +3,5 @@ export { EditFontSizeDirective } from './src/feature/editFontSize/edit-font-size
 export { FontStyleDirective } from './src/feature/toggleFontStyles/font-style.directive'
 export { FontStyleModel } from './src/feature/toggleFontStyles/font-style.model'
 export { FontStyleDialogComponent } from './src/feature/toggleFontStyles/font-style-dialog.component'
-export { ComponentResolverService } from './src/feature/toggleFontStyles/component.resolver.service'
+export { DialogResolverService } from './src/feature/toggleFontStyles/dialog-resolver.service'
 export { FontStyleDialogService } from './src/feature/toggleFontStyles/font-style-dialog.service'

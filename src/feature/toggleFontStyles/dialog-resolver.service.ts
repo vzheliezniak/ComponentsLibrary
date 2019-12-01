@@ -3,7 +3,7 @@ import { FontStyleDialogComponent } from './font-style-dialog.component';
 import { FontStyleModel } from './font-style.model';
 
 @Injectable()
-export class ComponentResolverService {
+export class DialogResolverService {
     private rootViewContainer!: ViewContainerRef;
     private nativeElement: HTMLElement = null;
 
@@ -20,6 +20,7 @@ export class ComponentResolverService {
         const component = factory.create(this.rootViewContainer.parentInjector);
         component.instance.elementForStyling = this.nativeElement;
         component.instance.initialFontSettings = fontSettings;
+        console.log("adding component to host", this.rootViewContainer.element.nativeElement);
         this.rootViewContainer.insert(component.hostView);
     }
 

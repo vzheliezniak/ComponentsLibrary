@@ -79,6 +79,8 @@ export class FontStyleDialogComponent implements OnInit, OnDestroy {
     }
 
     private populateOnFormInitialFontSettings(fontSettings: FontStyleModel): void {
+
+        console.log("populateOnFormInitialFontSettings");
         let emptyStyleOptions: Array<number> = new Array<number>();
 
         if (fontSettings) {
@@ -116,7 +118,9 @@ export class FontStyleDialogComponent implements OnInit, OnDestroy {
             this.addCheckboxes(emptyStyleOptions);
             this.form.controls.textDecorations.patchValue(this.textDecorations[0].id);
             this.form.controls.fontFamilyOption.patchValue(this.fontFamilyOption[0].id);
-        }       
+        }
+
+        console.log("populateOnFormInitialFontSettings end");
     }
 
     private updateFontSettings(fontStyle: string, fontWeight: string, textDecoration: string, fontFamily: string): void {

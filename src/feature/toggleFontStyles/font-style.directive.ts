@@ -1,5 +1,5 @@
 import { OnInit, Input, Directive, Output, EventEmitter, ViewContainerRef, OnDestroy } from '@angular/core';
-import { ComponentResolverService } from './component.resolver.service';
+import { DialogResolverService } from './dialog-resolver.service';
 import { FontStyleDialogService } from './font-style-dialog.service';
 //import { Subscription } from 'rxjs';
 import { FontStyleModel } from './font-style.model';
@@ -17,7 +17,7 @@ export class FontStyleDirective implements OnInit, OnDestroy {
     //private subscription: Array<Subscription> = new Array < Subscription>();
     private isDialogAlreadyOpen: boolean = false;
 
-    constructor(private comp: ComponentResolverService, public container: ViewContainerRef, private dialogService: FontStyleDialogService) {
+    constructor(private comp: DialogResolverService, public container: ViewContainerRef, private dialogService: FontStyleDialogService) {
     }
 
     ngOnInit() {
