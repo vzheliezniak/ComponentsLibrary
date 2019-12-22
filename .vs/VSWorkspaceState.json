@@ -7,5 +7,6 @@
     "\\src\\feature\\editFontSize",
     "\\src\\feature\\toggleFontStyles"
   ],
+  "SelectedNode": "\\src\\feature\\toggleFontStyles\\dialog-resolver.service.ts",
   "PreviewInSolutionExplorer": false
 }
